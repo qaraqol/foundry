@@ -13,7 +13,7 @@ Web application for creating WAX blockchain accounts with configurable resource 
 
 ## Dependencies
 
-- Node.js 16+
+- Bun
 - SQLite3
 - eosjs
 - hCaptcha

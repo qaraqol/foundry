@@ -2,7 +2,7 @@
 import React from "react";
 import { Card, Typography, List } from "antd";
 
-const { Title, Text } = Typography;
+const { Title, Text, Paragraph } = Typography;
 
 const FAQCard = () => {
   const faqData = [
@@ -29,44 +29,32 @@ const FAQCard = () => {
     {
       question: "What is the difference between public and private keys?",
       answer: (
-        <Text>
-          In a cryptocurrency context, public and private keys are cryptographic
-          keys used for securing transactions and ensuring the integrity of the
-          blockchain. Public Key: Purpose: The public key is used as an address
-          to receive funds or data. It is visible to others and can be freely
-          shared. How it Works: The public key is derived from the private key
-          using a cryptographic function. It allows others to send transactions
-          to you but does not allow them to spend your funds. Visibility: It’s
-          meant to be shared openly and used by others to identify you or your
-          wallet. Example: Think of it like your email address, where others can
-          send you messages (funds) without being able to read your messages
-          (access your funds). Private Key: Purpose: The private key is used to
-          sign transactions, proving ownership of the funds or assets linked to
-          the public key. How it Works: It allows you to access and control the
-          funds associated with your public key. The private key is kept secret
-          and should never be shared with others. Visibility: It should be kept
-          private, and anyone who has access to your private key can control
-          your funds. Example: It’s like the password to your email account,
-          allowing you to sign in and read or send messages (spend funds). Key
-          Points: Public Key: Visible to everyone, used to receive funds.
-          Private Key: Secret, used to authorize transactions and spend funds.
-          Loss of a private key means losing access to the associated funds, and
-          sharing it with others compromises your security.
-        </Text>
+        <Paragraph>
+          <Text strong>Public Keys</Text> are shared openly and used to receive
+          cryptocurrency or verify digital signatures. They act like a bank
+          account number that others can use to send you funds.
+          <br />
+          <Text strong>Private Keys</Text> are secret and should never be
+          shared. They allow you to access and spend your cryptocurrency,
+          similar to a bank account password. Keeping your private key secure is
+          crucial to protecting your digital assets.
+        </Paragraph>
       ),
     },
     {
       question: "What is the difference between Owner and Active Keys?",
       answer: (
-        <List
-          dataSource={[
-            "Enter your WAX account name.",
-            "Select how many transactions you want to export.",
-            'Click on "Export": The tool will process your request and generate a CSV file.',
-            "Download the CSV file: Save the file to your device when prompted.",
-          ]}
-          renderItem={(item) => <List.Item>• {item}</List.Item>}
-        />
+        <Paragraph>
+          <Text strong>Owner Keys</Text> provide the highest level of permission
+          on a blockchain account. They can: Change other permission levels
+          Recover the account if active keys are compromised <br />
+          <Text strong>Active Keys</Text> are used for everyday transactions
+          like: Sending and receiving tokens, Staking, and Voting. <br /> <br />
+          <Text italic>
+            For security, it's recommended to keep owner keys offline and use
+            active keys for regular activities.
+          </Text>
+        </Paragraph>
       ),
     },
   ];
