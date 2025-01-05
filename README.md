@@ -1,6 +1,6 @@
 # WAX Account Creator
 
-Web application for creating WAX blockchain accounts with configurable resource allocation.
+Foundry is a tool designed to easily create accounts on the WAX Blockchain, developed to make it easier to onboard new users onto WAX.
 
 ## Features
 

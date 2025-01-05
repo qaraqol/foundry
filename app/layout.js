@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "foundry - Qaraqol Account Creator",
+  title: "Foundry - Create a Free WAX Account Instantly",
   description: "WAX Account Creator",
 };
 

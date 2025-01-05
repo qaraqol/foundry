@@ -12,7 +12,7 @@ const HeaderComponent = () => {
         fontSize: "1.5rem",
       }}
     >
-      foundry - Account creation tool by Qaraqol
+      Foundry - Create a Free WAX Account Instantly
     </Header>
   );
 };

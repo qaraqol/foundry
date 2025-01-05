@@ -195,8 +195,8 @@ const HomeCard = ({
           message={
             <Space>
               <InfoCircleOutlined />
-              Create your WAX account in minutes. Generate your keys using
-              Anchor Wallet first.
+              Create your WAX account in minutes. Learn how to generate your
+              accounts keys in the FAQ
             </Space>
           }
           type="info"
@@ -288,7 +288,7 @@ const HomeCard = ({
         </Button>
 
         <Card size="small" style={{ backgroundColor: "#fafafa" }}>
-          <Text strong>Account Resources:</Text>
+          <Text strong>Temporary Sponsored Account Resources</Text>
           <div style={{ marginTop: 8 }}>
             <Space direction="vertical">
               <Text>• CPU: 10 WAX</Text>
