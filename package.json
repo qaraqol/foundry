@@ -1,0 +1,25 @@
+{
+  "name": "foundry",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 5000",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qaraqol/foundry"
+  },
+  "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.2",
+    "@hcaptcha/react-hcaptcha": "^1.11.0",
+    "@waxio/waxjs": "^1.7.1",
+    "antd": "^5.22.2",
+    "eosjs": "^22.1.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sqlite3": "^5.1.7"
+  }
+}
