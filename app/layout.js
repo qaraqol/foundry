@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Qaraqol Token Transfers",
-  description: "WAX Account Token Transfers",
+  title: "foundry - Qaraqol Account Creator",
+  description: "WAX Account Creator",
 };
 
 export default function RootLayout({ children }) {
