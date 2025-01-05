@@ -68,8 +68,6 @@ export async function createWaxAccount(
   ipAddress
 ) {
   let transactionId = null;
-  let retries = 0;
-  const maxRetries = 1;
 
   try {
     if (await checkAccountExists(accountName)) {
@@ -166,56 +164,50 @@ export async function createWaxAccount(
           data: {
             from: creatorAccount,
             receiver: accountName,
-            stake_net_quantity: process.env.NET_STAKE || "0.00500000 WAX",
-            stake_cpu_quantity: process.env.CPU_STAKE || "0.04500000 WAX",
+            stake_net_quantity:
+              process.env.NET_STAKE + " WAX" || "0.00500000 WAX",
+            stake_cpu_quantity:
+              process.env.CPU_STAKE + " WAX" || "0.04500000 WAX",
             transfer: false,
           },
         },
       ],
     };
 
-    while (retries < maxRetries) {
-      try {
-        const result = await api.transact(transaction, {
-          blocksBehind: 3,
-          expireSeconds: 30,
-        });
+    try {
+      const result = await api.transact(transaction, {
+        blocksBehind: 3,
+        expireSeconds: 30,
+      });
 
-        transactionId = result.transaction_id;
+      transactionId = result.transaction_id;
+      console.log(result);
 
-        if (!(await verifyTransaction(transactionId))) {
-          throw new Error("Transaction verification failed");
-        }
-
-        if (!(await checkAccountExists(accountName))) {
-          throw new Error("Account creation verification failed");
-        }
-
-        const resources = {
-          ram: `${process.env.RAM_BYTES} bytes`,
-          cpu: `${process.env.CPU_STAKE} WAX`,
-          net: `${process.env.NET_STAKE} WAX`,
-        };
-        await logTransaction({
-          accountName,
-          transactionId,
-          status: "success",
-          ipAddress,
-          resources,
-        });
-
-        return { success: true, accountName, transactionId, resources };
-      } catch (error) {
-        retries++;
-        if (retries === maxRetries) {
-          throw new Error(
-            `Transaction failed after ${maxRetries} attempts: ${error.message}`
-          );
-        }
-        await new Promise((resolve) =>
-          setTimeout(resolve, 1000 * Math.pow(2, retries))
-        );
+      if (!(await verifyTransaction(transactionId))) {
+        throw new Error("Transaction verification failed");
       }
+
+      if (!(await checkAccountExists(accountName))) {
+        throw new Error("Account creation verification failed");
+      }
+
+      const resources = {
+        ram: `${process.env.RAM_BYTES} bytes`,
+        cpu: `${process.env.CPU_STAKE} WAX`,
+        net: `${process.env.NET_STAKE} WAX`,
+      };
+      await logTransaction({
+        accountName,
+        transactionId,
+        status: "success",
+        ipAddress,
+        resources,
+      });
+
+      return { success: true, accountName, transactionId, resources };
+    } catch (error) {
+      console.log(error);
+      throw new Error(`Transaction failed: ${error.message}`);
     }
   } catch (error) {
     const errorMessage = error.message || "Unknown error occurred";
