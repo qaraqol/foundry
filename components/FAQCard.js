@@ -19,6 +19,37 @@ const FAQCard = () => {
       ),
     },
     {
+      question: "How is the platform free?",
+      answer: (
+        <>
+          <Text>
+            The platform is sponsored by <b>Qaraqol</b>, one of the leading WAX
+            Guilds, in order to help make it easy for new users to try out WAX.
+          </Text>
+        </>
+      ),
+    },
+    {
+      question: "How long do the temporary resources staked last?",
+      answer: (
+        <>
+          <Text>Between 24 hours to 7 days, depending on platform usage.</Text>
+        </>
+      ),
+    },
+    {
+      question: "Is my account secure?",
+      answer: (
+        <>
+          <Text>
+            Yes, we only require your public keys so we can create your account
+            on the blockchain. Your private keys or what is required to access
+            your account is NOT required.
+          </Text>
+        </>
+      ),
+    },
+    {
       question: "How do I generate keys so I can create an account?",
       answer: (
         <List
