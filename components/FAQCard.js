@@ -52,15 +52,6 @@ const FAQCard = () => {
     {
       question: "How do I generate keys so I can create an account?",
       answer: (
-        <List
-          dataSource={["Using the Anchor wallet to generate keys."]}
-          renderItem={(item) => <List.Item>{item}</List.Item>}
-        />
-      ),
-    },
-    {
-      question: "How do I generate keys so I can create an account?",
-      answer: (
         <Paragraph>
           We recommend downloading and using{" "}
           <a href="https://www.greymass.com/anchor" target="_blank">
